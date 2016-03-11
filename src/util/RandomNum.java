@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Random;
+
 public class RandomNum {
 	static public int randomNum(int sum){
 		if(sum==0){
@@ -7,4 +9,5 @@ public class RandomNum {
 		}
 		return (int)(Math.random() * sum); 
 	}
+	
 }
