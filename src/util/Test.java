@@ -14,7 +14,9 @@ public class Test {
 		// System.out.println(u.receive("111111"));
 		// System.out.println(u.receive("111111"));
 		// new Test().genRan(100,300);
-		new HongbaoFactory().factory(1,5,95,400);
+		
+		ArrayList list = new HongbaoFactory().factory(1,6,50,200,new ArrayList<String>());
+		//new HongbaoUtil().addHongbao(list);
 //		new Test().fake(3.1234, 2);
 	}
 

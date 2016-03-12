@@ -1,6 +1,7 @@
 package util;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import util.HibernateSessionFactory;
@@ -38,5 +39,19 @@ public class HongbaoUtil {
 			return false;
 		} finally {
 		}
+	}
+	public void addHongbao(ArrayList<String> hbList){
+		session = HibernateSessionFactory.getSession();
+		
+		Iterator it = hbList.iterator();
+		while(it.hasNext()){
+			Transaction tx = session.beginTransaction();
+			Hongbao hb = new Hongbao();
+			hb.setKouling((String)it.next());
+			session.save(hb);
+			tx.commit();
+			session.clear();
+		}
+		session.close();
 	}
 }

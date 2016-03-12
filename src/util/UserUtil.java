@@ -40,12 +40,10 @@ public class UserUtil {
 					session.close();
 					return kouling;
 				}else{
-					tx.commit();
 					session.close();
 					return "红包领完了";
 				}
 			}else{
-				tx.commit();
 				session.close();
 				return "领过了";
 			}
@@ -70,7 +68,6 @@ public class UserUtil {
 				session.close();
 				return kouling;
 			}else{
-				tx.commit();
 				session.close();
 				return "红包领完了";
 			}

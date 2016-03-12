@@ -14,22 +14,21 @@ import java.util.Random;
  *
  */
 public class HongbaoFactory {
-	public List factory(int min, int max, int num,double money) {
+	public ArrayList factory(int min, int max, int num,double money,ArrayList<String> moneyList) {
 		double sum = 0;
-		List list = new ArrayList<Double>();
+		DecimalFormat df = new DecimalFormat("0.00");
+		ArrayList list = new ArrayList<Double>();
 		for (int i = 0; i < num; i++) {
 			Random random = new Random();
 			int s = random.nextInt(max) % (max - min + 1) + min;
 			double mny = Math.random()+s;
 			sum+=mny;
+			moneyList.add(df.format(mny));
+			System.out.println(df.format(mny));
 			list.add(fake(mny,2));
+			
 		}
-		double remain = (money-sum)/(100-num);
-		for(int i = 0;i < 100 - num;i++){
-			double d = remain + Math.random();
-			list.add(fake(d,2));
-		}
-		System.out.println(sum);
+		System.out.println("总计:"+sum);
 		return list;
 	}
 	public String fake(double d,int level){
@@ -50,6 +49,7 @@ public class HongbaoFactory {
 		}
 		String r0 = "";
 		System.out.println(result);
+		System.out.println();
 		return result;
 	}
 }
